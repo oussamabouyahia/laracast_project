@@ -4,7 +4,7 @@
 
      @foreach ($jobs as $job)
           <li>
-            <a href="/jobs/{{ $job['id'] }}" class="hover:text-underline text-blue-400">
+            <a href="/jobs/{{ $job['id'] }}" class="hover:underline hover:text-blue-400">
                 {{ $job["title"] }}
             </a>
         </li>

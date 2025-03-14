@@ -22,6 +22,7 @@ Route::get('/jobs/{id}', function ($id) use($jobs){
     $job = Arr::first($jobs,function($element)use($id){
          return $element['id']==$id;
     });
+    if(!$job){abort(404);}
 
     return view('job',["job"=>$job]);
 });
