@@ -1,13 +1,9 @@
 <?php
 
 use App\Models\Job;
-use Illuminate\Http\Client\Request;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-// $jobs= [
-//     ["id"=>1,"title"=>"director","salary"=>50000],
-//     ["id"=>2,"title"=>"programmer","salary"=>30000],
-//     ["id"=>3,"title"=>"accountant","salary"=>70000],
-//     ["id"=>4,"title"=>"CEO","salary"=>100000]];
+
 Route::get('/', function () {
     return view('home');
 });
@@ -18,7 +14,12 @@ Route::get('/jobs', function  () {
 $jobs= Job::with('employer')->latest()->paginate(3);
     return view('jobs.index',["jobs"=>$jobs]);
 });
-Route::post('/jobs', function () {
+Route::post('/jobs', function (Request $request) {
+
+   $request->validate([
+        'title' => 'required|string|max:255|min:3',
+        'salary' => 'required|string|max:255|min:3',
+    ]);
    Job::create([
         "title"=>request('title'),
         "salary"=>request('salary'),
