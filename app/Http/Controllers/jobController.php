@@ -56,5 +56,8 @@ class jobController extends Controller
         $job->delete();
         return redirect('/jobs');
     }
+    public function create(){
+        return view('jobs.create');
+    }
 }
 

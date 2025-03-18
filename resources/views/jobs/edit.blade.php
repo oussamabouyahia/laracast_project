@@ -8,24 +8,19 @@
             @csrf
             @method('PATCH')
             <div class="form-group">
-                <label for="title">Job Title: </label>
-                <input
-                 class="mt-1 block w-full border-gray-900 bg-white rounded-md shadow-sm focus:border-indigo-600 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 h-12"
+                <x-form-label for="title">Job Title: </x-form-label>
+                <x-form-input
                  type="text"
                  name="title"
                  id="title"
                  value="{{ $job->title }}"
-                 required>
+                 required />
             </div>
             <div class="form-group mt-2">
-                <label for="salary">Salary: </label>
-                <input
-                 class="mt-1 block w-full border-gray-900 bg-white rounded-md shadow-sm focus:border-indigo-600 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 h-12"
-                 type="string"
-                 name="salary"
-                 id="salary"
-                 value="{{ $job->salary}}"
-                 required>
+                <x-form-label for="salary">Salary: </x-form-label>
+                <x-form-input id="salary" name="salary" type="text" value="{{ $job->salary }}" required/>
+
+
             </div>
             <div class="flex item-center justify-between gab-x-6">
                 <div class="flex item-center ">
