@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class LoginUserController extends Controller
+class SessionController extends Controller
 {
     public function create(){
         return view('auth.login');
@@ -17,7 +17,8 @@ class LoginUserController extends Controller
             'password' => 'required|string|max:255|min:3',
         ]);
         if(Auth::attempt($validated)){
-            return redirect('/dashboard');
+            $request->session()->regenerate();
+            return redirect('/jobs');
         }
         return back()->withErrors([
             'email' => 'The provided credentials do not match our records.',

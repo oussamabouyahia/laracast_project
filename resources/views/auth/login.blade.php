@@ -1,4 +1,5 @@
 <x-layout>
+    <x-slot name="heading">Log In</x-slot>
     <form action="/login" method="POST">
         @csrf
         <div class="mb-4">
