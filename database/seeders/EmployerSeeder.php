@@ -3,16 +3,17 @@
 namespace Database\Seeders;
 
 use App\Models\Employer;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\User;
+
 use Illuminate\Database\Seeder;
 
 class EmployerSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
-        Employer::factory(10)->create();
+        // Get existing users and create an employer for each
+        User::all()->each(function ($user) {
+            Employer::factory()->create(['user_id' => $user->id]);
+        });
     }
 }

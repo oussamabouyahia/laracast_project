@@ -3,7 +3,7 @@
 
 
         <div class="container">
-            <x-slot:heading>Edit Job {{ $user. "   " .$user1 }} </x-slot:heading>
+            <x-slot:heading>Edit Job </x-slot:heading>
             <form action="/jobs/{{ $job->id }} " method="POST">
             @csrf
             @method('PATCH')

@@ -1,18 +1,17 @@
 <?php
-
 namespace Database\Seeders;
-
 use App\Models\Job;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Employer;
 use Illuminate\Database\Seeder;
 
 class JobSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
-        Job::factory(20)->create();
+        Employer::all()->each(function ($employer) {
+            Job::factory(2)->create(['employer_id' => $employer->id]);
+        });
     }
 }
+
+
