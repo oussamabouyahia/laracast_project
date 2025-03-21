@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Mail\JobListed;
 use App\Models\Job;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Mail;
 
 class jobController extends Controller
 {
@@ -33,11 +35,13 @@ class jobController extends Controller
             'salary' => 'required|string|max:255|min:3',
         ]);
 
-        Job::create([
+        $job = Job::create([
             "title" => request('title'),
             "salary" => request('salary'),
-            "employer_id" => Auth::user()->employer->id,
+            "employer_id" => '1',
+            // "employer_id" => Auth::user()->employer->id,
         ]);
+        Mail::to($job->employer->user)->send(new JobListed($job));
         return redirect('/jobs');
     }
     public function edit(Job $job)

@@ -27,8 +27,12 @@
                     <button form="delete-form" type="submit" class="m-3 text-blue-500 hover:text-blue-700 inline-block bg-red-500 text-white py-2 px-4 rounded">Delete Job</button>
                 </div>
                 <div class="flex item-center gab-x-6">
-                   <button type="submit" class="m-3 text-blue-500 hover:text-blue-700 inline-block bg-blue-500 text-white py-2 px-4 rounded">Update Job</button>
-                   <a href="/posts/{{ $job->id }}"   class=" m-3 text-blue-500 hover:text-blue-700 inline-block bg-orange-500 text-white py-2 px-4 rounded">Cancel</a>
+
+
+                  <button type="submit" class="m-3 text-blue-500
+                  hover:text-blue-700 inline-block bg-blue-500 text-white py-2 px-4 rounded">Update Job</button>
+                  <a href="/posts/{{ $job->id }}"   class=" m-3 text-blue-500 hover:text-blue-700 inline-block bg-orange-500 text-white py-2 px-4 rounded">Cancel</a>
+
                 </div>
             </div>
         </form>
