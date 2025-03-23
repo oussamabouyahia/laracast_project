@@ -14,7 +14,7 @@ Thanks,<br>
 <p>
     Congrats, you job now is live on our website. <br>
 </p>
-
+{{-- url work for both local and production environment --}}
 <a href="{{ url('/jobs/' .$job->id) }}"> view Job Listing</a>
 <p>
     Thanks, <br>
